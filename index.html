@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Girl 💗</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    width: 85%;
+    max-width: 360px;
+    animation: pop 1s ease;
+}
+
+h1 { color: #ff4f7b; }
+
+p {
+    color: #444;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+button {
+    border: none;
+    background: #ff4f7b;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.heart {
+    position: absolute;
+    bottom: -10px;
+    font-size: 22px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Hey Beautiful 🫶</h1>
+    <p>
+        I made this just for you 💕<br>
+        This song always reminds me of you 🌸
+    </p>
+    <button onclick="toggleMusic()">🎵 Play Our Song</button>
+</div>
+
+<audio id="music" src="M_-_Indila_-Love_Story_Version_Orchestrale_(mp3.pm).mp3" loop></audio>
+
+<script>
+let music = document.getElementById("music");
+let playing = false;
+
+function toggleMusic() {
+    if (!playing) {
+        music.play();
+        playing = true;
+    } else {
+        music.pause();
+        playing = false;
+    }
+}
+
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}, 500);
+</script>
+
+</body>
+</html>
